@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/AIVA_EDM_Song.mp3-24fdc2b34e06230cfb519e73dba85eb5.mp3str"
+
+[deps]
+
+source_file="res://Audio/AIVA_EDM_Song.mp3"
+dest_files=[ "res://.import/AIVA_EDM_Song.mp3-24fdc2b34e06230cfb519e73dba85eb5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

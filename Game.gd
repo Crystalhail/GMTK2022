@@ -26,6 +26,9 @@ func _on_Hole_entered(body):
 	if body.is_in_group("ColorBall"):
 		print("Color ball ", body, " has entered a hole!")
 		body.queue_free()
+	if body.is_in_group("Ball"):
+		$Socket.stop()
+		$Socket.play()
 
 func advance_turn():
 	if whose_turn == Players.ONE:
@@ -44,6 +47,7 @@ func reset_turn_state():
 		$ViewportView/Viewport/ThreeD/WhiteBall.rotate_cue = false
 	else:
 		$ViewportView/Viewport/ThreeD/WhiteBall.rotate_cue = true
+	$FLEffect.hide()
 
 func _process(_delta):
 	if game_state == State.AIMING:
@@ -81,5 +85,8 @@ func _process(_delta):
 			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.y.y: 2,
 			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y: 3
 		}
-		print(table[opts.max()])
+		var effect = table[opts.max()]
+		print(effect)
 		advance_turn()
+		if effect == 1:
+			$FLEffect.show()

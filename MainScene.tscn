@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://pool-table-billiards-vector-2731268.jpg" type="Texture" id=1]
 [ext_resource path="res://Pool_Table.png" type="Texture" id=2]
@@ -24,6 +24,13 @@
 [ext_resource path="res://HUD/g4323-2.png" type="Texture" id=22]
 [ext_resource path="res://Font/Oswald-Bold.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://icon.png" type="Texture" id=24]
+[ext_resource path="res://Faces/Q-T1p.png" type="Texture" id=25]
+[ext_resource path="res://Audio/AIVA_EDM_Song.mp3" type="AudioStream" id=26]
+[ext_resource path="res://Audio/Cue_impact.wav" type="AudioStream" id=27]
+[ext_resource path="res://Effects/FlashLight.png" type="Texture" id=28]
+[ext_resource path="res://Effects/Linear.png" type="Texture" id=29]
+[ext_resource path="res://Faces/Vic2ria.png" type="Texture" id=30]
+[ext_resource path="res://Audio/Impact_ball_to_socket.wav" type="AudioStream" id=31]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -157,6 +164,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.001
@@ -184,10 +203,40 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="DynamicFont" id=29]
 size = 80
 font_data = ExtResource( 23 )
+
+[sub_resource type="Shader" id=30]
+code = "shader_type canvas_item;
+
+uniform vec2 from;
+uniform vec2 to;
+
+void fragment() {
+	if (UV.x > from.x && UV.y > from.y && UV.x < to.x && UV.y < to.y) {
+		discard;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=31]
+shader = SubResource( 30 )
+shader_param/from = Vector2( 0.2, 0.271 )
+shader_param/to = Vector2( 0.391, 0.568 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -209,6 +258,7 @@ transparent_bg = true
 handle_input_locally = false
 render_target_v_flip = true
 render_target_update_mode = 3
+audio_listener_enable_3d = true
 
 [node name="ThreeD" type="Spatial" parent="ViewportView/Viewport"]
 
@@ -419,6 +469,9 @@ anims/Appear = SubResource( 13 )
 anims/Hit = SubResource( 11 )
 anims/RESET = SubResource( 12 )
 
+[node name="HitSound" type="AudioStreamPlayer2D" parent="PoolCue"]
+stream = ExtResource( 27 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -442,16 +495,17 @@ margin_top = 16.0
 margin_right = 700.0
 margin_bottom = 136.0
 custom_fonts/font = SubResource( 29 )
-text = "Player 1"
+text = "@Q-T1p"
 
 [node name="Player2" type="Label" parent="CanvasLayer/TextureRect/Control"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -709.0
+margin_top = 16.0
 margin_right = -377.0
-margin_bottom = 120.0
+margin_bottom = 136.0
 custom_fonts/font = SubResource( 29 )
-text = "Player 2"
+text = "@Vic2ria"
 align = 2
 
 [node name="Player1Balls" type="GridContainer" parent="CanvasLayer/TextureRect/Control"]
@@ -568,6 +622,42 @@ margin_top = 80.0
 margin_right = 304.0
 margin_bottom = 144.0
 texture = ExtResource( 24 )
+
+[node name="Q-T1p" type="Sprite" parent="."]
+position = Vector2( 204, 1236 )
+scale = Vector2( 0.408, 0.408 )
+texture = ExtResource( 25 )
+
+[node name="Vic2Ria" type="Sprite" parent="."]
+position = Vector2( 1716, 1236 )
+scale = Vector2( 0.408, 0.408 )
+texture = ExtResource( 30 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+autoplay = true
+
+[node name="Socket" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+
+[node name="FLEffect" type="Node2D" parent="."]
+visible = false
+
+[node name="FlashLight" type="Sprite" parent="FLEffect"]
+position = Vector2( -288, 959 )
+texture = ExtResource( 28 )
+
+[node name="Blackness" type="ColorRect" parent="FLEffect"]
+material = SubResource( 31 )
+margin_right = 1920.0
+margin_bottom = 1180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Linear" type="Sprite" parent="FLEffect"]
+position = Vector2( 0, 1180 )
+scale = Vector2( 1920, 0.488281 )
+texture = ExtResource( 29 )
+centered = false
 
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/LeftHole" to="." method="_on_Hole_entered"]
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/RightHole" to="." method="_on_Hole_entered"]

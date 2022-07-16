@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cue_impact.wav-36201fbfaf19bbc8e3573d02743c1ede.sample"
+
+[deps]
+
+source_file="res://Audio/Cue_impact.wav"
+dest_files=[ "res://.import/Cue_impact.wav-36201fbfaf19bbc8e3573d02743c1ede.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
