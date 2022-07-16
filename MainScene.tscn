@@ -76,4 +76,3 @@ shape = SubResource( 6 )
 
 [node name="BallBase" parent="ViewportView/Viewport/3D" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-linear_velocity = Vector3( 1, 0, 0 )
