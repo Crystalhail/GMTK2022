@@ -43,11 +43,9 @@ func _process(_delta):
 	if game_state == State.ROLLING:
 		var still = true
 		for ball in get_tree().get_nodes_in_group("Ball"):
-			ball.visible = !ball.visible
 			if ball.linear_velocity.length_squared()>0.01 or ball.angular_velocity.length_squared()>0.01:
 				still = false
 		if still:
 			for ball in get_tree().get_nodes_in_group("Ball"):
-				ball.visible=true
 				ball.linear_velocity=Vector3.ZERO
 			advance_turn()
