@@ -58,7 +58,7 @@ func _process(_delta):
 	if game_state == State.ROLLING:
 		var still = true
 		for ball in get_tree().get_nodes_in_group("Ball"):
-			if ball.linear_velocity.length_squared()>0.01 or ball.angular_velocity.length_squared()>0.01:
+			if ball.linear_velocity.length_squared()>0.02 or ball.angular_velocity.length_squared()>0.02:
 				still = false
 		if still:
 			for ball in get_tree().get_nodes_in_group("Ball"):
