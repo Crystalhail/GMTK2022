@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BallBase.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.09
+
+[node name="BallBase" type="RigidBody"]
+script = ExtResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+radius = 0.09
+radial_segments = 24
+rings = 12
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
