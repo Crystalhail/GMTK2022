@@ -12,7 +12,7 @@ enum Players {
 	TWO
 }
 
-var player_two_is_bot = true
+var player_two_is_bot = false
 var whose_turn = Players.ONE
 var game_state = State.AIMING
 
@@ -74,12 +74,12 @@ func _process(_delta):
 			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y
 		]
 		var table = {
-			$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.x.y:  4,
+			$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.x.y:  1,
 			$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.y.y:  5,
-			$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y:  1,
-			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.x.y: 3,
+			$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y:  4,
+			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.x.y: 6,
 			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.y.y: 2,
-			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y: 6
+			-$ViewportView/Viewport/ThreeD/WhiteBall.transform.basis.z.y: 3
 		}
 		print(table[opts.max()])
 		advance_turn()

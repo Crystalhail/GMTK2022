@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Ball4.obj-9c92fa6f136ecc718cebfc364392befe.mesh"
+
+[deps]
+
+files=[ "res://.import/Ball4.obj-9c92fa6f136ecc718cebfc364392befe.mesh" ]
+
+source_file="res://Ball/Balls/Ball4/Ball4.obj"
+dest_files=[ "res://.import/Ball4.obj-9c92fa6f136ecc718cebfc364392befe.mesh", "res://.import/Ball4.obj-9c92fa6f136ecc718cebfc364392befe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,12 +1,26 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://pool-table-billiards-vector-2731268.jpg" type="Texture" id=1]
 [ext_resource path="res://Pool_Table.png" type="Texture" id=2]
 [ext_resource path="res://BallBase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://WhiteBall.gd" type="Script" id=5]
-[ext_resource path="res://Ball/WhiteMat.tres" type="Material" id=6]
+[ext_resource path="res://Ball/Balls/Ball/None-color.png" type="Texture" id=6]
 [ext_resource path="res://Pool_Cue.png" type="Texture" id=7]
+[ext_resource path="res://Ball/Balls/Ball9/None-color.png" type="Texture" id=8]
+[ext_resource path="res://Ball/Balls/Ball2/None-color.png" type="Texture" id=9]
+[ext_resource path="res://Ball/Balls/Ball8/None-color.png" type="Texture" id=10]
+[ext_resource path="res://Ball/Balls/Ball10/None-color.png" type="Texture" id=11]
+[ext_resource path="res://Ball/Balls/Ball3/None-color.png" type="Texture" id=12]
+[ext_resource path="res://Ball/Balls/Ball11/None-color.png" type="Texture" id=13]
+[ext_resource path="res://Ball/Balls/Ball7/None-color.png" type="Texture" id=14]
+[ext_resource path="res://Ball/Balls/Ball14/None-color.png" type="Texture" id=15]
+[ext_resource path="res://Ball/Balls/Ball4/None-color.png" type="Texture" id=16]
+[ext_resource path="res://Ball/Balls/Ball5/None-color.png" type="Texture" id=17]
+[ext_resource path="res://Ball/Balls/Ball13/None-color.png" type="Texture" id=18]
+[ext_resource path="res://Ball/Balls/Ball15/None-color.png" type="Texture" id=19]
+[ext_resource path="res://Ball/Balls/Ball6/None-color.png" type="Texture" id=20]
+[ext_resource path="res://Ball/Balls/Ball12/None-color.png" type="Texture" id=21]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -32,6 +46,66 @@ extents = Vector3( 3, 1, 6 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 5, 2, 8 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_unshaded = true
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_unshaded = true
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_unshaded = true
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=19]
+flags_unshaded = true
+albedo_texture = ExtResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_unshaded = true
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="SpatialMaterial" id=18]
+flags_unshaded = true
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="SpatialMaterial" id=23]
+flags_unshaded = true
+albedo_texture = ExtResource( 16 )
+
+[sub_resource type="SpatialMaterial" id=21]
+flags_unshaded = true
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=28]
+flags_unshaded = true
+albedo_texture = ExtResource( 21 )
+
+[sub_resource type="SpatialMaterial" id=27]
+flags_unshaded = true
+albedo_texture = ExtResource( 20 )
+
+[sub_resource type="SpatialMaterial" id=26]
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_unshaded = true
+albedo_texture = ExtResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=20]
+flags_unshaded = true
+albedo_texture = ExtResource( 13 )
+
+[sub_resource type="SpatialMaterial" id=25]
+flags_unshaded = true
+albedo_texture = ExtResource( 18 )
+
+[sub_resource type="SpatialMaterial" id=24]
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.3, 0.3, 0.3 )
@@ -172,7 +246,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.3 )
 script = ExtResource( 5 )
 
 [node name="Mesh" parent="ViewportView/Viewport/ThreeD/WhiteBall" index="0"]
-material/0 = ExtResource( 6 )
+material/0 = SubResource( 14 )
 
 [node name="BallBase2" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.3 )
@@ -180,44 +254,86 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.3 )
 [node name="BallBase4" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089941, 0.1, -1.45722 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase4" index="0"]
+material/0 = SubResource( 15 )
+
 [node name="BallBase5" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.1, -1.457 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase5" index="0"]
+material/0 = SubResource( 16 )
 
 [node name="BallBase6" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179882, 0.1, -1.61392 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase6" index="0"]
+material/0 = SubResource( 19 )
+
 [node name="EightBall" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "EightBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90384e-05, 0.1, -1.6137 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/EightBall" index="0"]
+material/0 = SubResource( 17 )
 
 [node name="BallBase8" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179941, 0.1, -1.6137 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase8" index="0"]
+material/0 = SubResource( 18 )
+
 [node name="BallBase9" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270145, 0.1, -1.77129 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase9" index="0"]
+material/0 = SubResource( 23 )
 
 [node name="BallBase10" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0902044, 0.1, -1.77107 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase10" index="0"]
+material/0 = SubResource( 21 )
+
 [node name="BallBase11" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360086, 0.1, -1.92799 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase11" index="0"]
+material/0 = SubResource( 28 )
 
 [node name="BallBase12" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180145, 0.1, -1.92777 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase12" index="0"]
+material/0 = SubResource( 27 )
+
 [node name="BallBase13" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000263497, 0.1, -1.92777 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase13" index="0"]
+material/0 = SubResource( 26 )
 
 [node name="BallBase14" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0902635, 0.1, -1.77129 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase14" index="0"]
+material/0 = SubResource( 22 )
+
 [node name="BallBase15" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270205, 0.1, -1.77107 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase15" index="0"]
+material/0 = SubResource( 20 )
 
 [node name="BallBase17" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180264, 0.1, -1.92777 )
 
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase17" index="0"]
+material/0 = SubResource( 25 )
+
 [node name="BallBase18" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360145, 0.1, -1.92777 )
+
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase18" index="0"]
+material/0 = SubResource( 24 )
 
 [node name="OmniLight" type="OmniLight" parent="ViewportView/Viewport/ThreeD"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
@@ -304,3 +420,17 @@ anims/RESET = SubResource( 12 )
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/RightHeadHole" to="." method="_on_Hole_entered"]
 
 [editable path="ViewportView/Viewport/ThreeD/WhiteBall"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase4"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase5"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase6"]
+[editable path="ViewportView/Viewport/ThreeD/EightBall"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase8"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase9"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase10"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase11"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase12"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase13"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase14"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase15"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase17"]
+[editable path="ViewportView/Viewport/ThreeD/BallBase18"]
