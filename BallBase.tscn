@@ -7,7 +7,7 @@
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.5
 rough = true
-bounce = 0.3
+bounce = 0.4
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.09
