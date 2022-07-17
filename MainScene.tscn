@@ -223,20 +223,26 @@ font_data = ExtResource( 23 )
 [sub_resource type="Shader" id=30]
 code = "shader_type canvas_item;
 
-uniform vec2 from;
-uniform vec2 to;
+// center of the position of the hole, since it's a centered sprite it's equal to the sprite's position value
+uniform vec2 at;
+// rect size
+const vec2 size = vec2(1920,1069);
+// size of the hole, rounded down a bit for smoothness
+const vec2 holepunch = vec2(460,460) / 2f;
 
 void fragment() {
-	if (UV.x > from.x && UV.y > from.y && UV.x < to.x && UV.y < to.y) {
-		discard;
+	vec2 pos = UV * size;
+	if(pos.x > at.x - holepunch.x && pos.x < at.x + holepunch.x) {
+		if(pos.y > at.y - holepunch.y && pos.y < at.y + holepunch.y) {
+			discard;
+		}
 	}
 }
 "
 
 [sub_resource type="ShaderMaterial" id=31]
 shader = SubResource( 30 )
-shader_param/from = Vector2( 0.2, 0.271 )
-shader_param/to = Vector2( 0.391, 0.568 )
+shader_param/at = Vector2( 1000, 500 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -650,7 +656,7 @@ texture = ExtResource( 28 )
 [node name="Blackness" type="ColorRect" parent="FLEffect"]
 material = SubResource( 31 )
 margin_right = 1920.0
-margin_bottom = 1180.0
+margin_bottom = 1069.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Linear" type="Sprite" parent="FLEffect"]

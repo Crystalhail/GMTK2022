@@ -9,8 +9,7 @@ func _process(_delta):
 	var pos = get_viewport().get_camera().unproject_position(translation)
 	pos.y = 1069 - pos.y
 	$"../../../../FLEffect/FlashLight".position = pos
-	$"../../../../FLEffect/Blackness".material.set("shader_param/from", (pos - Vector2(230, 230))/$"../../../../FLEffect/Blackness".rect_size)
-	$"../../../../FLEffect/Blackness".material.set("shader_param/to", (pos + Vector2(230, 230))/$"../../../../FLEffect/Blackness".rect_size)
+	$"../../../../FLEffect/Blackness".material.set("shader_param/at", pos)
 	if !move_cue:
 		return
 	$"../../../../PoolCue".position = pos
