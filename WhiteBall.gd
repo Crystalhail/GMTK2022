@@ -4,6 +4,7 @@ var move_cue = true
 var rotate_cue = true
 var speed_multiplier = 4
 var speed_cap = 8
+var effect = ""
 
 func _process(_delta):
 	var pos = get_viewport().get_camera().unproject_position(translation)
@@ -19,7 +20,19 @@ func _process(_delta):
 func shoot_towards_mouse():
 	var mp = $"../../../..".get_local_mouse_position()
 	mp.y = 1069 - mp.y
+	shoot_towards(mp)
+
+func shoot_towards(mp):
+	if effect == "Wonky":
+		mp.x+=50-(100*randf())
+		mp.y+=50-(100*randf())
 	var projected_mouse = get_viewport().get_camera().project_position(mp, 0)
+	if effect == "Spin":
+		angular_velocity = Vector3(0, 800, 0)
 	# Since we are projecting with zero Z-depth we should make sure we don't shoot the ball upwards by not affecting the Y axis
-	linear_velocity.x = min(speed_cap, (projected_mouse.x-translation.x) * speed_multiplier)
-	linear_velocity.z = min(speed_cap, (projected_mouse.z-translation.z) * speed_multiplier)
+	if effect == "Weak":
+		linear_velocity.x = min(speed_cap, (projected_mouse.x-translation.x) * speed_multiplier / 4)
+		linear_velocity.z = min(speed_cap, (projected_mouse.z-translation.z) * speed_multiplier / 4)
+	else:
+		linear_velocity.x = min(speed_cap, (projected_mouse.x-translation.x) * speed_multiplier)
+		linear_velocity.z = min(speed_cap, (projected_mouse.z-translation.z) * speed_multiplier)
