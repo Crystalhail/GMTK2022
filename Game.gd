@@ -14,7 +14,7 @@ enum Players {
 	TWO
 }
 
-var player_two_is_bot = true
+var player_two_is_bot = false
 var whose_turn = Players.ONE
 var game_state = State.AIMING
 

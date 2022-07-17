@@ -28,6 +28,9 @@ func shoot_towards(mp):
 		mp.y+=50-(100*randf())
 	var projected_mouse = get_viewport().get_camera().project_position(mp, 0)
 	if effect == "Spin":
+		rotate_x(randi()*0.01)
+		rotate_y(randi()*0.01)
+		rotate_z(randi()*0.01)
 		angular_velocity = Vector3(0, 800, 0)
 	# Since we are projecting with zero Z-depth we should make sure we don't shoot the ball upwards by not affecting the Y axis
 	if effect == "Weak":
