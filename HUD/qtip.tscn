@@ -4,10 +4,10 @@
 [ext_resource path="res://Font/Oswald-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://HUD/youwin.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 288
 outline_size = 20
-outline_color = Color( 0.231373, 0, 0, 1 )
+outline_color = Color( 1, 0.564706, 0.00784314, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
@@ -107,6 +107,26 @@ tracks/0/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.175, -1.16089, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.675 )
 }
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Label:rect_scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.7, -0.25, 0, 0.5, 0.16494, 1, -0.8, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Label:rect_scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.7, -0.25, 0, 0.5, 0.165, 1, -0.8, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 
 [sub_resource type="DynamicFont" id=4]
 size = 96
@@ -126,15 +146,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -564.0
-margin_top = -214.0
-margin_right = 564.0
-margin_bottom = 214.0
+margin_left = -539.0
+margin_top = -429.5
+margin_right = 539.0
+margin_bottom = 429.5
 rect_scale = Vector2( 0.7, 0.7 )
-rect_pivot_offset = Vector2( 539, 214 )
-custom_colors/font_color = Color( 1, 0.227451, 0.227451, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "YOU LOSE"
+rect_pivot_offset = Vector2( 538.571, 429.286 )
+custom_colors/font_color = Color( 1, 0.988235, 0.215686, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Q-T1P
+wins!"
 align = 1
 valign = 1
 

@@ -4,10 +4,10 @@
 [ext_resource path="res://Font/Oswald-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://HUD/youwin.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 288
 outline_size = 20
-outline_color = Color( 0.0705882, 0.231373, 0, 1 )
+outline_color = Color( 0.380392, 0.117647, 0.129412, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
@@ -147,14 +147,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -539.0
-margin_top = -214.0
+margin_top = -429.5
 margin_right = 539.0
-margin_bottom = 214.0
+margin_bottom = 429.5
 rect_scale = Vector2( 0.7, 0.7 )
-rect_pivot_offset = Vector2( 539, 214 )
-custom_colors/font_color = Color( 0.231373, 1, 0.227451, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "YOU WIN!"
+rect_pivot_offset = Vector2( 538.571, 429.286 )
+custom_colors/font_color = Color( 0.737255, 0.192157, 0.192157, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Vic2ria
+wins!"
 align = 1
 valign = 1
 
