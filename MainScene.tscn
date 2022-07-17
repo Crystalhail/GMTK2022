@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://pool-table-billiards-vector-2731268.jpg" type="Texture" id=1]
 [ext_resource path="res://Pool_Table.png" type="Texture" id=2]
@@ -23,7 +23,7 @@
 [ext_resource path="res://Ball/Balls/Ball12/None-color.png" type="Texture" id=21]
 [ext_resource path="res://HUD/g4323-2.png" type="Texture" id=22]
 [ext_resource path="res://Font/Oswald-Bold.ttf" type="DynamicFontData" id=23]
-[ext_resource path="res://icon.png" type="Texture" id=24]
+[ext_resource path="res://HUD/BallIcons/Ball9.png" type="Texture" id=24]
 [ext_resource path="res://Faces/Q-T1p.png" type="Texture" id=25]
 [ext_resource path="res://Audio/AIVA_EDM_Song.mp3" type="AudioStream" id=26]
 [ext_resource path="res://Audio/Cue_impact.wav" type="AudioStream" id=27]
@@ -34,6 +34,19 @@
 [ext_resource path="res://Faces/Q-T1p_happy.png" type="Texture" id=32]
 [ext_resource path="res://Faces/Vic2ria_happy.png" type="Texture" id=33]
 [ext_resource path="res://Effects/Star.png" type="Texture" id=34]
+[ext_resource path="res://HUD/BallIcons/Ball10.png" type="Texture" id=35]
+[ext_resource path="res://HUD/BallIcons/Ball11.png" type="Texture" id=36]
+[ext_resource path="res://HUD/BallIcons/Ball13.png" type="Texture" id=37]
+[ext_resource path="res://HUD/BallIcons/Ball5.png" type="Texture" id=38]
+[ext_resource path="res://HUD/BallIcons/Ball15.png" type="Texture" id=39]
+[ext_resource path="res://HUD/BallIcons/Ball3.png" type="Texture" id=40]
+[ext_resource path="res://HUD/BallIcons/Ball7.png" type="Texture" id=41]
+[ext_resource path="res://HUD/BallIcons/Ball12.png" type="Texture" id=42]
+[ext_resource path="res://HUD/BallIcons/Ball14.png" type="Texture" id=43]
+[ext_resource path="res://HUD/BallIcons/Ball1.png" type="Texture" id=44]
+[ext_resource path="res://HUD/BallIcons/Ball2.png" type="Texture" id=45]
+[ext_resource path="res://HUD/BallIcons/Ball4.png" type="Texture" id=46]
+[ext_resource path="res://HUD/BallIcons/Ball6.png" type="Texture" id=47]
 
 [sub_resource type="Shader" id=37]
 code = "shader_type canvas_item;
@@ -526,25 +539,25 @@ script = ExtResource( 5 )
 [node name="Mesh" parent="ViewportView/Viewport/ThreeD/WhiteBall" index="0"]
 material/0 = SubResource( 14 )
 
-[node name="BallBase2" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball1" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.3 )
 
-[node name="BallBase4" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball2" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089941, 0.1, -1.45722 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase4" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball2" index="0"]
 material/0 = SubResource( 15 )
 
-[node name="BallBase5" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball9" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.1, -1.457 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase5" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball9" index="0"]
 material/0 = SubResource( 16 )
 
-[node name="BallBase6" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball3" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179882, 0.1, -1.61392 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase6" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball3" index="0"]
 material/0 = SubResource( 19 )
 
 [node name="EightBall" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "EightBall"] instance=ExtResource( 3 )]
@@ -553,64 +566,64 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90384e-05, 0.1, -1.6137 )
 [node name="Mesh" parent="ViewportView/Viewport/ThreeD/EightBall" index="0"]
 material/0 = SubResource( 17 )
 
-[node name="BallBase8" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball10" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179941, 0.1, -1.6137 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase8" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball10" index="0"]
 material/0 = SubResource( 18 )
 
-[node name="BallBase9" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball4" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270145, 0.1, -1.77129 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase9" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball4" index="0"]
 material/0 = SubResource( 23 )
 
-[node name="BallBase10" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball14" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0902044, 0.1, -1.77107 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase10" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball14" index="0"]
 material/0 = SubResource( 21 )
 
-[node name="BallBase11" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball12" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360086, 0.1, -1.92799 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase11" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball12" index="0"]
 material/0 = SubResource( 28 )
 
-[node name="BallBase12" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball6" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180145, 0.1, -1.92777 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase12" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball6" index="0"]
 material/0 = SubResource( 27 )
 
-[node name="BallBase13" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball15" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000263497, 0.1, -1.92777 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase13" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball15" index="0"]
 material/0 = SubResource( 26 )
 
-[node name="BallBase14" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball7" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0902635, 0.1, -1.77129 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase14" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball7" index="0"]
 material/0 = SubResource( 22 )
 
-[node name="BallBase15" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball11" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270205, 0.1, -1.77107 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase15" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball11" index="0"]
 material/0 = SubResource( 20 )
 
-[node name="BallBase17" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball13" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180264, 0.1, -1.92777 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase17" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball13" index="0"]
 material/0 = SubResource( 25 )
 
-[node name="BallBase18" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
+[node name="Ball5" parent="ViewportView/Viewport/ThreeD" groups=["Ball", "ColorBall"] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360145, 0.1, -1.92777 )
 
-[node name="Mesh" parent="ViewportView/Viewport/ThreeD/BallBase18" index="0"]
+[node name="Mesh" parent="ViewportView/Viewport/ThreeD/Ball5" index="0"]
 material/0 = SubResource( 24 )
 
 [node name="OmniLight" type="OmniLight" parent="ViewportView/Viewport/ThreeD"]
@@ -738,48 +751,62 @@ custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 4
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball1" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_right = 64.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 44 )
+expand = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball2" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 45 )
+expand = true
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball3" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 40 )
+expand = true
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball4" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 46 )
+expand = true
 
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball5" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_top = 80.0
 margin_right = 64.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 38 )
+expand = true
 
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball6" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_left = 80.0
 margin_top = 80.0
 margin_right = 144.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 47 )
+expand = true
 
-[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
+[node name="Ball7" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player1Balls"]
 margin_left = 160.0
 margin_top = 80.0
 margin_right = 224.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 41 )
+expand = true
 
 [node name="Player2Balls" type="GridContainer" parent="CanvasLayer/TextureRect/Control"]
 anchor_left = 1.0
@@ -793,56 +820,62 @@ custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 4
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball9" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_right = 64.0
 margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 24 )
+expand = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball10" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 35 )
+expand = true
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball11" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 36 )
+expand = true
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball12" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 64.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 42 )
+expand = true
 
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
-self_modulate = Color( 1, 1, 1, 0 )
+[node name="Ball13" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_top = 80.0
 margin_right = 64.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 37 )
+expand = true
 
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball14" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_left = 80.0
 margin_top = 80.0
 margin_right = 144.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 43 )
+expand = true
 
-[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
+[node name="Ball15" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
 margin_left = 160.0
 margin_top = 80.0
 margin_right = 224.0
 margin_bottom = 144.0
-texture = ExtResource( 24 )
-
-[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/TextureRect/Control/Player2Balls"]
-margin_left = 240.0
-margin_top = 80.0
-margin_right = 304.0
-margin_bottom = 144.0
-texture = ExtResource( 24 )
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 39 )
+expand = true
 
 [node name="EffectIsText" type="Label" parent="CanvasLayer/TextureRect/Control"]
 visible = false
@@ -956,17 +989,17 @@ centered = false
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/RightHeadHole" to="." method="_on_Hole_entered"]
 
 [editable path="ViewportView/Viewport/ThreeD/WhiteBall"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase4"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase5"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase6"]
+[editable path="ViewportView/Viewport/ThreeD/Ball2"]
+[editable path="ViewportView/Viewport/ThreeD/Ball9"]
+[editable path="ViewportView/Viewport/ThreeD/Ball3"]
 [editable path="ViewportView/Viewport/ThreeD/EightBall"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase8"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase9"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase10"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase11"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase12"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase13"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase14"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase15"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase17"]
-[editable path="ViewportView/Viewport/ThreeD/BallBase18"]
+[editable path="ViewportView/Viewport/ThreeD/Ball10"]
+[editable path="ViewportView/Viewport/ThreeD/Ball4"]
+[editable path="ViewportView/Viewport/ThreeD/Ball14"]
+[editable path="ViewportView/Viewport/ThreeD/Ball12"]
+[editable path="ViewportView/Viewport/ThreeD/Ball6"]
+[editable path="ViewportView/Viewport/ThreeD/Ball15"]
+[editable path="ViewportView/Viewport/ThreeD/Ball7"]
+[editable path="ViewportView/Viewport/ThreeD/Ball11"]
+[editable path="ViewportView/Viewport/ThreeD/Ball13"]
+[editable path="ViewportView/Viewport/ThreeD/Ball5"]

@@ -29,6 +29,12 @@ func _on_Hole_entered(body):
 	if body.is_in_group("ColorBall"):
 		print("Color ball ", body, " has entered a hole!")
 		body.queue_free()
+		if int(body.name.substr(4))<8:
+			$"Q-T1p/AnimationPlayer".play("Happy")
+			get_node("CanvasLayer/TextureRect/Control/Player1Balls/"+body.name).queue_free()
+		else:
+			$"Vic2ria/AnimationPlayer".play("Happy")
+			get_node("CanvasLayer/TextureRect/Control/Player2Balls/"+body.name).queue_free()
 	if body.is_in_group("Ball"):
 		$Socket.stop()
 		$Socket.play()
