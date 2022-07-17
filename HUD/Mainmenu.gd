@@ -19,6 +19,13 @@ func _on_back_pressed():
 	$Main.show()
 	$Credits.hide()
 
-
 func _on_humanplay_pressed():
+	Global.cpu = false
+	load_scene()
+
+func _on_botplay_pressed():
+	Global.cpu = true
+	load_scene()
+
+func load_scene():
 	get_tree().change_scene("res://MainScene.tscn")

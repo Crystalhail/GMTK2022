@@ -14,9 +14,18 @@ enum Players {
 	TWO
 }
 
-var player_two_is_bot = false
+var player_two_is_bot = true
 var whose_turn = Players.ONE
 var game_state = State.AIMING
+
+func p1wins():
+	$Win.add_child(load("res://HUD/qtip.tscn").instance())
+
+func p2wins():
+	$Win.add_child(load("res://HUD/victoria.tscn").instance())
+
+func _ready():
+	player_two_is_bot = Global.cpu
 
 func _on_Hole_entered(body):
 	if body is StaticBody:
@@ -26,6 +35,18 @@ func _on_Hole_entered(body):
 		game_state = State.GUTTER_ROLLING
 	if body.is_in_group("EightBall"):
 		print("The 8-ball has entered a hole!")
+		# The 8-ball is always a game ender!
+		get_tree().paused = true
+		if whose_turn == Players.ONE:
+			if $CanvasLayer/TextureRect/Control/Player1Balls.get_child_count()==0:
+				p1wins()
+			else:
+				p2wins()
+		else:
+			if $CanvasLayer/TextureRect/Control/Player2Balls.get_child_count()==0:
+				p2wins()
+			else:
+				p1wins()
 	if body.is_in_group("ColorBall"):
 		print("Color ball ", body, " has entered a hole!")
 		body.queue_free()
@@ -42,8 +63,10 @@ func _on_Hole_entered(body):
 func advance_turn():
 	if whose_turn == Players.ONE:
 		whose_turn = Players.TWO
+		$CanvasLayer/TextureRect/Control/Turn.text = "Vic2ria's turn"
 	elif whose_turn == Players.TWO:
 		whose_turn = Players.ONE
+		$CanvasLayer/TextureRect/Control/Turn.text = "Q-T1p's turn"
 	else:
 		assert(false) # What
 	reset_turn_state()
@@ -92,10 +115,47 @@ func apply_effect(effect):
 	$CanvasLayer/TextureRect/Control/ActualEffect.show()
 	$CanvasLayer/TextureRect/Control/ActualEffect.text = "("+str(effect)+") "+effectname
 
+func get_random_safe_mouse_position():
+	return Vector2(960+(rand()*704), 534.5+(rand()*278.5))
+
 func _process(_delta):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().change_scene("res://HUD/Mainmenu.tscn")
 	if game_state == State.AIMING:
 		if player_two_is_bot and whose_turn == Players.TWO:
+			var to
+			if $FLEffect.visible:
+				to = get_random_safe_mouse_position()
+			else:
+				var dist = 1000
+				var targetball
+				for ball in get_tree().get_nodes_in_group("Ball"):
+					if $CanvasLayer/TextureRect/Control/Player2Balls.get_child_count()>0: # If there are balls left
+						if !$ViewportView.material.get("shader_param/bw"): # If we're not colorblind
+							if ball.is_in_group("ColorBall"): # If it's a color ball
+								if int(ball.name.substr(4))<8: # If it's p1's ball, don't
+									continue
+							else:
+								continue
+					else:
+						if !ball.is_in_group("EightBall"): # If it's not the 8-ball, don't
+							continue
+					print("checking ball ", ball)
+					for hole in get_tree().get_nodes_in_group("Hole"):
+						var d = ball.global_transform.origin.distance_to(hole.global_transform.origin)
+						print("checking ball ", ball, " against hole ", hole, ", ", d)
+						if d < dist:
+							print(d)
+							targetball = ball
+							dist = d
+				to = $ViewportView/Viewport/ThreeD/Camera.unproject_position(targetball.translation)
+			var mp = to
+			mp.y = 1069 - mp.y
+			$PoolCue.look_at(mp)
+			$ViewportView/Viewport/ThreeD/WhiteBall.shoot_towards(to)
+			game_state = State.ROLLING
 			$ViewportView/Viewport/ThreeD/WhiteBall.move_cue = false
+			$PoolCue/AnimationPlayer.play("Hit")
 		else:
 			if Input.is_action_just_pressed("Click"):
 				$ViewportView/Viewport/ThreeD/WhiteBall.shoot_towards_mouse()
@@ -148,7 +208,7 @@ func _process(_delta):
 		$ViewportView/Viewport/ThreeD/WhiteBall.mode = RigidBody.MODE_KINEMATIC
 		if (game_state == State.PLACE_BALL and whose_turn == Players.TWO and player_two_is_bot) or (game_state == State.NEXT_PLACE_BALL and whose_turn == Players.ONE and player_two_is_bot):
 			# Random spot
-			$ViewportView/Viewport/ThreeD/WhiteBall.translation = $ViewportView/Viewport/ThreeD/Camera.project_position(Vector2(960+(rand()*704), 534.5+(rand()*278.5)), 1)
+			$ViewportView/Viewport/ThreeD/WhiteBall.translation = $ViewportView/Viewport/ThreeD/Camera.project_position(get_random_safe_mouse_position(), 1)
 			place = true
 		else:
 			var mp = get_global_mouse_position()

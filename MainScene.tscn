@@ -656,37 +656,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74269, 1, 0.77455 )
 visible = false
 omni_range = 13.483
 
-[node name="LeftHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="LeftHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.8, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/LeftHole"]
 shape = SubResource( 8 )
 
-[node name="RightHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="RightHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.8, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/RightHole"]
 shape = SubResource( 8 )
 
-[node name="LeftFootHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="LeftFootHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.8, -2.7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/LeftFootHole"]
 shape = SubResource( 8 )
 
-[node name="RightFootHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="RightFootHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.8, -2.7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/RightFootHole"]
 shape = SubResource( 8 )
 
-[node name="LeftHeadHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="LeftHeadHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.8, 2.7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/LeftHeadHole"]
 shape = SubResource( 8 )
 
-[node name="RightHeadHole" type="Area" parent="ViewportView/Viewport/ThreeD"]
+[node name="RightHeadHole" type="Area" parent="ViewportView/Viewport/ThreeD" groups=["Hole"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.8, 2.7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportView/Viewport/ThreeD/RightHeadHole"]
@@ -877,6 +877,16 @@ rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 39 )
 expand = true
 
+[node name="Turn" type="Label" parent="CanvasLayer/TextureRect/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -244.0
+margin_right = 245.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 32 )
+text = "Q-T1p's turn"
+align = 1
+
 [node name="EffectIsText" type="Label" parent="CanvasLayer/TextureRect/Control"]
 visible = false
 anchor_left = 0.5
@@ -980,6 +990,9 @@ position = Vector2( 0, 1066 )
 scale = Vector2( 1920, 0.089844 )
 texture = ExtResource( 29 )
 centered = false
+
+[node name="Win" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/LeftHole" to="." method="_on_Hole_entered"]
 [connection signal="body_entered" from="ViewportView/Viewport/ThreeD/RightHole" to="." method="_on_Hole_entered"]

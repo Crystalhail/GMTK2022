@@ -1,4 +1,4 @@
-extends RigidBody
+extends "res://BallBase.gd"
 
 var move_cue = true
 var rotate_cue = true
