@@ -90,3 +90,6 @@ func _process(_delta):
 		advance_turn()
 		if effect == 1:
 			$FLEffect.show()
+			$CanvasLayer/TextureRect/Control/EffectIsText.show()
+			$CanvasLayer/TextureRect/Control/ActualEffect.show()
+			$CanvasLayer/TextureRect/Control/ActualEffect.text = "Flashlight"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://pool-table-billiards-vector-2731268.jpg" type="Texture" id=1]
 [ext_resource path="res://Pool_Table.png" type="Texture" id=2]
@@ -219,6 +219,30 @@ tracks/2/keys = {
 [sub_resource type="DynamicFont" id=29]
 size = 80
 font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 50
+font_data = ExtResource( 23 )
+
+[sub_resource type="Shader" id=33]
+code = "shader_type canvas_item;
+
+// center of the position of the hole, since it's a centered sprite it's equal to the sprite's position value
+uniform vec2 at;
+// rect size
+const vec2 size = vec2(1920,1069);
+// size of the hole, rounded down a bit for smoothness
+const vec2 holepunch = vec2(463,463);
+
+void fragment() {
+	vec2 pos = UV * holepunch + (at - holepunch/2f);
+	if(pos.y > size.y) {discard;}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=34]
+shader = SubResource( 33 )
+shader_param/at = Vector2( -288, 959 )
 
 [sub_resource type="Shader" id=30]
 code = "shader_type canvas_item;
@@ -629,6 +653,33 @@ margin_right = 304.0
 margin_bottom = 144.0
 texture = ExtResource( 24 )
 
+[node name="EffectIsText" type="Label" parent="CanvasLayer/TextureRect/Control"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -244.0
+margin_right = 245.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 32 )
+text = "Current effect:"
+align = 1
+valign = 2
+
+[node name="ActualEffect" type="Label" parent="CanvasLayer/TextureRect/Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.0
+margin_top = -53.5
+margin_right = 221.0
+margin_bottom = 115.5
+custom_fonts/font = SubResource( 29 )
+text = "Flashlight"
+align = 1
+valign = 1
+
 [node name="Q-T1p" type="Sprite" parent="."]
 position = Vector2( 204, 1236 )
 scale = Vector2( 0.408, 0.408 )
@@ -649,6 +700,7 @@ stream = ExtResource( 31 )
 [node name="FLEffect" type="Node2D" parent="."]
 
 [node name="FlashLight" type="Sprite" parent="FLEffect"]
+material = SubResource( 34 )
 position = Vector2( -288, 959 )
 texture = ExtResource( 28 )
 
@@ -659,8 +711,8 @@ margin_bottom = 1069.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Linear" type="Sprite" parent="FLEffect"]
-position = Vector2( 0, 1069 )
-scale = Vector2( 1920, 0.0781254 )
+position = Vector2( 0, 1066 )
+scale = Vector2( 1920, 0.089844 )
 texture = ExtResource( 29 )
 centered = false
 

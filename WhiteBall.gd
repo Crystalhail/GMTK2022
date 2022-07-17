@@ -10,6 +10,7 @@ func _process(_delta):
 	pos.y = 1069 - pos.y
 	$"../../../../FLEffect/FlashLight".position = pos
 	$"../../../../FLEffect/Blackness".material.set("shader_param/at", pos)
+	$"../../../../FLEffect/FlashLight".material.set("shader_param/at", pos)
 	if !move_cue:
 		return
 	$"../../../../PoolCue".position = pos
