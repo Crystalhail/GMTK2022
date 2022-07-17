@@ -647,7 +647,6 @@ autoplay = true
 stream = ExtResource( 31 )
 
 [node name="FLEffect" type="Node2D" parent="."]
-visible = false
 
 [node name="FlashLight" type="Sprite" parent="FLEffect"]
 position = Vector2( -288, 959 )
@@ -660,8 +659,8 @@ margin_bottom = 1069.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Linear" type="Sprite" parent="FLEffect"]
-position = Vector2( 0, 1180 )
-scale = Vector2( 1920, 0.488281 )
+position = Vector2( 0, 1069 )
+scale = Vector2( 1920, 0.0781254 )
 texture = ExtResource( 29 )
 centered = false
 
